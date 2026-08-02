@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Reflection Journey</title>
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div class="app">
+  <header class="app-header">
+    <div class="sidebar-brand"><span class="brand-icon" id="brandIcon"></span> Reflection Journey</div>
+    <nav class="sidebar-nav">
+      <button class="nav-item active" data-view="quiz">
+        <span class="nav-icon" id="navIcon"></span> Reflection Question
+      </button>
+    </nav>
+  </header>
+
+  <main class="main" id="main"></main>
+
+  <footer class="app-footer">Semua jawabanmu hanya tersimpan di perangkat ini. Tidak ada yang dikirim ke mana pun.</footer>
+</div>
+
+<div id="printSummary" class="print-only"></div>
+
+<script src="icons.js"></script>
+<script src="questions-data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

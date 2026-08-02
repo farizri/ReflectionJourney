@@ -1,0 +1,13 @@
+{
+  "name": "reflection-journey",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Reflection Journey - Guided Self Reflection Experience for Workshop",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
