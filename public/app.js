@@ -129,7 +129,7 @@ function renderLanding() {
   }).join('')}
         </div>
       </div>
-      <button class="btn btn-primary" id="startBtn">${resuming ? 'Lanjutkan Refleksi' : 'Mulai Refleksi'}</button>
+      <button class="btn btn-primary" id="startBtn">${resuming ? 'Lanjutkan' : 'Mulai Refleksi'}</button>
     </div>
   `;
   document.getElementById('startBtn').addEventListener('click', () => goTo(resuming ? state.stepIndex : 1));
@@ -149,7 +149,7 @@ function renderMood() {
         `).join('')}
       </div>
       <div class="btn-row">
-        <button class="btn btn-ghost" id="backBtn">Kembali</button>
+        <button class="btn btn-secondary" id="backBtn">Kembali</button>
         <button class="btn btn-primary" id="nextBtn" ${state.mood ? '' : 'disabled'}>Lanjut</button>
       </div>
     </div>
@@ -202,7 +202,7 @@ function renderQuestion(q) {
       </div>
 
       <div class="btn-row">
-        <button class="btn btn-ghost" id="backBtn">Kembali</button>
+        <button class="btn btn-secondary" id="backBtn">Kembali</button>
         <button class="btn btn-primary" id="nextBtn">${q.id === total ? 'Selesai' : 'Lanjut'}</button>
       </div>
     </div>
@@ -238,7 +238,7 @@ function renderClosing() {
       </div>
       <div class="closing-actions">
         <button class="btn btn-primary" id="downloadBtn">${icon('fileText', 17)} Download Ringkasan (PDF)</button>
-        <button class="btn btn-ghost" id="restartBtn">${icon('rotate', 17)} Ulangi Refleksi</button>
+        <button class="btn btn-tertiary" id="restartBtn">${icon('rotate', 17)} Ulangi Refleksi</button>
       </div>
     </div>
   `;

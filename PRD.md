@@ -5,10 +5,10 @@
 
 | | |
 |---|---|
-| **Status** | Draft v3.3 |
+| **Status** | Draft v3.4 |
 | **Owner** | MAPID – Journaling & Self Reflection Workshop Team |
-| **Last Updated** | 2 Agustus 2026 |
-| **Version** | 3.3 |
+| **Last Updated** | 3 Agustus 2026 |
+| **Version** | 3.4 |
 
 > **Perubahan utama dari v2:** Fitur Reflection Board (papan jawaban bersama) **dihapus**. Aplikasi kini sepenuhnya privat per-perangkat · tidak ada backend, tidak ada database, tidak ada data yang terkirim ke mana pun. Ditambahkan: autosave, tombol Ulangi Refleksi, dan export ringkasan ke PDF. Empat pertanyaan direvisi. Rencana hosting: Netlify (situs statis).
 
@@ -270,17 +270,20 @@ CTA: **Download Ringkasan (PDF)** dan **Ulangi Refleksi**.
 
 ## 15. User Interface Direction
 
-**Status: sudah diimplementasikan (v3.3).**
+**Status: sudah diimplementasikan (v3.4) — mengadopsi design system "Serene Narrative" (spesifikasi dari Google Stitch yang diberikan tim).** Ini menggantikan seluruh eksperimen palet manual sebelumnya (Stoic-minimal → pop-art Jepang → coklat/coffee → sage&blush → biru) sebagai *source of truth* desain final.
 
-- **Ikon:** seluruh emoji keyboard diganti dengan set ikon garis (line-icon) custom buatan sendiri dalam format SVG inline (`icons.js`), tidak memakai emoji maupun font/CDN ikon eksternal, supaya tampilan konsisten di semua perangkat/OS dan tetap berjalan offline. Termasuk 8 ikon wajah/ekspresi custom untuk mood check-in (bukan dot warna, bukan emoji).
-- **Konsep visual: buku catatan (notebook/journal) fisik**, mengambil inspirasi dari materi presentasi workshop sendiri (spiral binding, kertas grid, heading serif miring, ikon centang), diterapkan secara minimalis, bukan tekstur foto literal:
-  - Setiap kartu utama (landing, kartu pertanyaan, closing) punya elemen **"jilid spiral"** dekoratif di sisi kiri (lubang ring digambar via CSS, bukan foto) beserta garis tepi tebal ala buku catatan.
-  - **Tekstur kertas grid** sangat samar di latar kartu, mengingatkan kertas buku tulis, tanpa mengganggu keterbacaan.
-  - **Heading bergaya "cover buku"** (judul landing, judul mood check-in, "Penutup") memakai font serif miring (`--font-display`, fallback ke Georgia/Times New Roman), sementara teks pertanyaan aktif & badge tetap sans-serif bold supaya tetap mudah dibaca saat menjawab.
-  - **Ikon centang (checkmark)** menandai baris "Contoh:" dan "Panduan:" pada tiap pertanyaan, mengikuti gaya checklist di referensi.
-- **Palet warna: coklat/coffee hangat** (v3.3, diganti dari palet hijau-krem sebelumnya) — dasar krem kecoklatan (`#EAE0C7`), kartu putih hangat (`#FFFBF1`), teks ink coklat tua (`#2B1D12`). Tidak ada tekstur foto kayu, murni warna flat. Tombol utama & elemen aksen kategori Shared memakai **coklat kopi** (`#6F4A2F`, sebelumnya hijau), kategori Personal memakai plum-coklat (`#5C3A44`), kategori 2 Ways Reflection memakai terracotta (`#B5583A`). Outline tebal 2px ink pada kartu & tombol dengan *hard offset shadow* (efek "stiker").
-- **Landing screen menampilkan preview 3 fase** (Personal Reflection, Shared Reflection, 2 Ways Reflection) sebagai daftar checklist singkat sebelum peserta mulai menjawab, memakai ikon centang + warna aksen per kategori.
+- **Konsep:** "Mindful Materiality" — perpaduan Modern Minimalism dengan sentuhan tactile/skeuomorphic ringan (kartu ala notebook dengan lubang jilid spiral di kiri), shadow lembut, dan tipografi berkualitas tinggi untuk kesan tenang dan reflektif.
+- **Warna:** dasar krem sangat lembut (`#FBF9F4`), kartu putih (`#FFFFFF`) dengan border 1px halus dan shadow lembut (`0 4px 20px rgba(0,0,0,0.06)`, bukan lagi *hard offset shadow* "stiker"). Tiga warna tonal untuk kategori & tombol:
+  - **Primary / Shared Reflection** — sage green (`#47645D`, tonal chip `#C9E9E0`)
+  - **Secondary / Personal Reflection** — stone/muted gold (`#645E50`, tonal chip `#E8DFCD`)
+  - **Tertiary / 2 Ways Reflection** — terracotta (`#894B38`, tonal chip `#FFDBD0`)
+- **Tipografi:** Playfair Display (serif) untuk heading & teks pertanyaan aktif — memberi nuansa "buku" yang reflektif; Inter (sans-serif) untuk body text, label, dan kontrol UI. Dimuat via Google Fonts dengan fallback system font (Georgia/system-ui) jika offline.
+- **Tombol** mengikuti hierarki 3 tingkat: **Primary** (solid sage, untuk Lanjut/Selesai/Download PDF), **Secondary** (outline sage, untuk Kembali), **Tertiary/Quiet** (teks saja warna stone, untuk Ulangi Refleksi) — bentuk rounded-md (8px), bukan pill penuh (kecuali progress bar yang tetap pill).
+- **Input jawaban** memakai efek "punch-out" (sedikit resesi dengan inner shadow tipis) alih-alih border bawah saja, berubah ke border sage penuh saat fokus.
+- **Elemen jilid spiral** (lubang ring dekoratif di kiri kartu) dipertahankan dari iterasi notebook sebelumnya karena sesuai dengan spesifikasi Stitch ("Small circular binder holes... to lean into the stationery metaphor"), namun kini digambar lebih halus (garis tipis, bukan outline tebal).
+- **Landing screen menampilkan preview 3 fase** (Personal/Shared/2 Ways Reflection) sebagai checklist ringkas dengan warna tonal per kategori, sebelum peserta mulai menjawab.
 - **Layout:** header atas (bukan sidebar), lihat [Information Architecture](#5-information-architecture).
+- Ikon tetap 100% custom SVG line-icon (`icons.js`), tanpa emoji maupun ikon-font eksternal.
 - Detail implementasi ada di `reflection-journey-app/public/styles.css`, `icons.js`, dan `app.js`.
 
 ---
