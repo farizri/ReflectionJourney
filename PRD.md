@@ -219,7 +219,8 @@ Kategori **2 Ways Reflection** *(sebelumnya bernama "Share with Friends")* diran
 
 - Semua peserta mendapat pertanyaan yang sama.
 - Fasilitator memandu peserta bergiliran memimpin tiap pertanyaan · misalnya Pertanyaan 8 dipimpin/ditanyakan oleh Peserta X ke pasangannya, Pertanyaan 9 dipimpin oleh Peserta Y, dan seterusnya sampai ketiga pertanyaan selesai didiskusikan.
-- Aplikasi hanya menampilkan teks pertanyaan sebagai prompt diskusi; peserta tetap dapat mengetik jawabannya sendiri di aplikasi sebagai catatan pribadi, namun proses "berbagi" yang sesungguhnya terjadi secara verbal/tatap muka.
+- **Kolom jawaban di aplikasi diisi dengan jawaban TEMAN, bukan jawaban milik peserta sendiri.** Peserta menanyakan pertanyaan ke teman di sebelahnya, lalu menuliskan jawaban temannya di kolom tersebut (placeholder input: "Tulis jawaban temanmu di sini..."). Bergantian: giliran peserta juga akan ditanya oleh temannya.
+- Aplikasi hanya menampilkan teks pertanyaan sebagai prompt diskusi dan tempat mencatat; proses "berbagi" yang sesungguhnya tetap terjadi secara verbal/tatap muka.
 - Jawaban kategori ini **tidak pernah** meninggalkan perangkat peserta.
 
 > ⚠️ **Catatan implementasi:** mekanisme rotasi "siapa memimpin pertanyaan mana" perlu dituliskan sebagai instruksi/naskah fasilitator (di luar aplikasi).

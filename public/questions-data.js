@@ -20,8 +20,8 @@ const REFLECTION_CATEGORIES = {
     key: 'friends',
     icon: 'users',
     label: '2 Ways Reflection',
-    short: 'Didiskusikan berdua secara bergantian dengan teman di sebelahmu.',
-    intro: 'Bagian ini didiskusikan langsung dengan teman di sebelahmu secara bergantian. Tujuannya bukan mencari jawaban terbaik, tetapi saling mengenal dan berbagi hal sederhana yang mungkin membawa senyum atau inspirasi.',
+    short: 'Tanyakan ke teman di sebelahmu, lalu tuliskan jawaban temanmu.',
+    intro: 'Tanyakan pertanyaan ini ke teman di sebelahmu, lalu tuliskan jawaban temanmu (bukan jawabanmu sendiri) di kolom ini. Bergantian: giliranmu juga akan ditanya oleh temanmu.',
   },
 };
 

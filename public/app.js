@@ -171,6 +171,10 @@ function renderQuestion(q) {
   const currentValue = state.answers[q.id] || '';
   const progressPct = Math.round((q.id / total) * 100);
   const isLong = q.type === 'Essay Panjang';
+  const isFriends = q.category === 'friends';
+  const placeholder = isFriends
+    ? 'Tulis jawaban temanmu di sini...'
+    : (isLong ? 'Tulis refleksimu di sini...' : 'Tulis jawaban singkat...');
 
   mainEl.innerHTML = `
     <div class="screen">
@@ -182,8 +186,8 @@ function renderQuestion(q) {
         <p class="question-text">${q.question}</p>
 
         ${isLong
-      ? `<textarea id="answerInput" maxlength="${q.maxLength}" placeholder="Tulis refleksimu di sini...">${escapeHtml(currentValue)}</textarea>`
-      : `<input type="text" id="answerInput" maxlength="${q.maxLength}" placeholder="Tulis jawaban singkat..." value="${escapeHtml(currentValue)}" />`
+      ? `<textarea id="answerInput" maxlength="${q.maxLength}" placeholder="${placeholder}">${escapeHtml(currentValue)}</textarea>`
+      : `<input type="text" id="answerInput" maxlength="${q.maxLength}" placeholder="${placeholder}" value="${escapeHtml(currentValue)}" />`
     }
         <div class="char-count"><span id="charCount">${currentValue.length}</span> / ${q.maxLength}</div>
 
@@ -225,25 +229,44 @@ function renderQuestion(q) {
 function renderClosing() {
   mainEl.innerHTML = `
     <div class="screen">
-      <div class="landing-body notebook-page">
-        <div class="closing-emoji">${icon('sprout', 34)}</div>
-        <h1 class="landing-title cover-heading">Penutup</h1>
-        <p class="landing-text">
-          Terima kasih sudah meluangkan waktu untuk berhenti sejenak.<br /><br />
-          Tidak semua jawaban harus langsung mengubah hidupmu. Kadang, pertanyaan yang
-          tepat sudah cukup untuk membuat kita melihat hidup dari sudut pandang yang
-          berbeda.
-        </p>
-        <blockquote class="closing-quote">
-          “You feel depressed and messed up doesn't mean you're broken, it just means you're human.”
-          <cite>David Mitchell</cite>
-        </blockquote>
-      </div>
-      <div class="closing-actions">
-        <button class="btn btn-primary" id="downloadBtn">${icon('fileText', 17)} Download Ringkasan (PDF)</button>
-        <button class="btn btn-tertiary" id="restartBtn">${icon('rotate', 17)} Ulangi Refleksi</button>
-      </div>
+  <div class="landing-body notebook-page">
+    
+    <div class="closing-emoji">
+      ${icon('sprout', 34)}
     </div>
+
+    <h1 class="landing-title cover-heading">
+      Tatapan lurus, dan 
+      <br> tanyakan hati <br> 
+    </h1>
+
+    <h3 class="landing-subtitle">
+      Raup semua nyali tarik napas lagi - 🥉 
+    </h3>
+
+    <p class="landing-text">
+      Let just thankful about yourself at the moment!
+      <br><br>
+
+      Semoga perjalanan refleksi hari ini membawamu pulang dengan
+      sedikit lebih tenang, sedikit lebih mengenal diri sendiri,
+      dan sedikit lebih siap menghadapi hari esok.
+    </p>
+
+  </div>
+
+  <div class="closing-actions">
+    <button class="btn btn-primary" id="downloadBtn">
+      ${icon('fileText', 17)}
+      Download Reflection (PDF)
+    </button>
+
+    <button class="btn btn-tertiary" id="restartBtn">
+      ${icon('rotate', 17)}
+      Mulai Refleksi Lagi
+    </button>
+  </div>
+</div>
   `;
   document.getElementById('downloadBtn').addEventListener('click', downloadSummaryPdf);
   document.getElementById('restartBtn').addEventListener('click', () => {
