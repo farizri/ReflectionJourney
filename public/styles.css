@@ -34,7 +34,7 @@
   --shadow-card: 0 4px 20px rgba(27, 28, 25, 0.06);
   --shadow-raised: 0 6px 24px rgba(27, 28, 25, 0.1);
 
-  --font-display: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --font-display: 'Libre Baskerville', Georgia, 'Times New Roman', serif;
   --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
 }
 
@@ -420,7 +420,7 @@ html, body {
 .question-text {
   font-family: var(--font-display);
   font-size: 22px;
-  font-weight: 600;
+  font-weight: 700;
   line-height: 28px;
   margin: 0 0 20px;
 }
@@ -461,17 +461,42 @@ textarea:focus, input[type="text"]:focus {
   font-size: 13.5px;
   color: var(--ink-soft);
   line-height: 1.6;
+}
+
+.helper-block .icon { color: var(--primary); flex-shrink: 0; margin-top: 2px; }
+
+.helper-head {
   display: flex;
   align-items: flex-start;
   gap: 6px;
 }
 
-.helper-block .icon { color: var(--primary); flex-shrink: 0; margin-top: 2px; }
-
 .helper-label {
   font-weight: 700;
   color: var(--ink);
   margin-right: 4px;
+}
+
+.example-list {
+  list-style: none;
+  margin: 8px 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.example-list li {
+  position: relative;
+  padding-left: 14px;
+  white-space: pre-line;
+}
+
+.example-list li::before {
+  content: '–';
+  position: absolute;
+  left: 0;
+  color: var(--outline);
 }
 
 /* Closing */

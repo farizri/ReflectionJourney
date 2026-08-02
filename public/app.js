@@ -189,12 +189,15 @@ function renderQuestion(q) {
 
         ${q.examples && q.examples.length ? `
           <div class="helper-block">
-            ${icon('checkCircle', 14)} <span class="helper-label">Contoh:</span> ${q.examples.join(' · ')}
+            <div class="helper-head">${icon('checkCircle', 14)} <span class="helper-label">Contoh:</span></div>
+            <ul class="example-list">
+              ${q.examples.map((ex) => `<li>${escapeHtml(ex)}</li>`).join('')}
+            </ul>
           </div>
         ` : ''}
         ${q.guidance ? `
           <div class="helper-block">
-            ${icon('checkCircle', 14)} <span class="helper-label">Panduan:</span> ${q.guidance}
+            <div class="helper-head">${icon('checkCircle', 14)} <span class="helper-label">Panduan:</span> ${q.guidance}</div>
           </div>
         ` : ''}
 
