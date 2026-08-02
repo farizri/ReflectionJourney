@@ -173,7 +173,7 @@ function renderQuestion(q) {
   const isLong = q.type === 'Essay Panjang';
   const isFriends = q.category === 'friends';
   const placeholder = isFriends
-    ? 'Tulis jawaban temanmu di sini...'
+    ? 'Tulis nama teman dan jawabannya. Cont. (Falya : Jawaban..)'
     : (isLong ? 'Tulis refleksimu di sini...' : 'Tulis jawaban singkat...');
 
   mainEl.innerHTML = `
